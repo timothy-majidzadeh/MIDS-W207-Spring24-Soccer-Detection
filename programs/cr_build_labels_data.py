@@ -17,7 +17,9 @@ analysis = project/"analysis"
 # Inputs: Data label CSV files.
 # Outputs: Stacked & reshaped CSV file.
 
-def load_and_label(dir, filename):
+all_saved_images = [f for root,dirs,files in os.walk(data/"base/top_view") for f in files]
+
+def load_and_label(dir, vidname):
 	"""
 	Loads the CSV file at path, returning it as a dataframe with the sourcefile as a column.
 	Inputs:
@@ -25,7 +27,7 @@ def load_and_label(dir, filename):
 	Outputs:
 		A Pandas DataFrame with the loaded & cleaned CSV.
 	"""
-	raw = pd.read_csv(dir/filename, header=[0, 1, 2])[1:].reset_index()
+	raw = pd.read_csv(dir/vidname, header=[0, 1, 2])[1:].reset_index()
 	raw.rename(columns={"index": "frame", "0" : "team_0", "1" : "team_1", "BALL": "ball"}, level=0, inplace=True)
 	raw.rename(columns={
 		"0" : "player_00",
@@ -43,8 +45,13 @@ def load_and_label(dir, filename):
 		"BALL" : "ball"
 	}, level=1, inplace=True)
 	raw.drop(columns="TeamID", inplace=True, level=0)
-	raw['filename'] = filename.replace(".csv", "")
-	raw.set_index(["filename", "frame"], inplace=True)
+	raw['vidname'] = vidname.replace(".csv", "")
+	raw['frame_imgname'] = raw.vidname.str.cat("_"+raw['frame'].astype(str)+".png")
+	raw['frame_imgpath'] = str(data)+"/base/top_view/"+raw['vidname']+"/"+raw['frame_imgname']
+	raw['frame_saved'] = [frame in all_saved_images for frame in raw['frame_imgname']]
+
+	raw.set_index(["vidname", "frame", "frame_imgname", "frame_imgpath"], inplace=True)
+	raw.reset_index(inplace=True)
 	return raw
 
 top_view_input = data/"untouched/top_view_labels"
@@ -52,10 +59,10 @@ top_view_output = data/"base/top_view_labels"
 wide_view_input = data/"untouched/wide_view_labels"
 wide_view_output = data/"base/wide_view_labels"
 
-stacked_data = pd.concat([load_and_label(top_view_input, filename) for filename in os.listdir(top_view_input)])
+stacked_data = pd.concat([load_and_label(top_view_input, vidname) for vidname in os.listdir(top_view_input)])
 stacked_data.to_csv(top_view_output/"top_view_labels.csv")
 stacked_data.to_pickle(top_view_output/"top_view_labels.pkl")
 
-stacked_data = pd.concat([load_and_label(wide_view_input, filename) for filename in os.listdir(wide_view_input)])
+stacked_data = pd.concat([load_and_label(wide_view_input, vidname) for vidname in os.listdir(wide_view_input)])
 stacked_data.to_csv(wide_view_output/"wide_view_labels.csv")
 stacked_data.to_pickle(wide_view_output/"wide_view_labels.pkl")
