@@ -3,13 +3,13 @@ from pathlib import Path
 import os
 
 mids_dir = Path("D:\\MIDS-W207")
-data = mids_dir/"MIDS-W207-Spring24-Soccer-Detection-Data"
+data = mids_dir/"MIDS-W207-Spring24-Soccer-Detection-Data/soccertrack"
 project = mids_dir/"MIDS-W207-Spring24-Soccer-Detection-Data"
 analysis = mids_dir/"analysis"
 
 # Author: Timothy Majidzadeh
 # Date Created: March 2, 2024
-# Date Updated: March 2, 2024
+# Date Updated: April 6, 2024
 # Description: Extract frame-by-frame image data from input videos.
 # Notes: [v1] Created program.
 # Inputs: Untouched video data.
@@ -39,13 +39,13 @@ def extract_frames(mp4, filename, output_folder):
 		if frame_num % 30 == 0:
 			print("Frame {}...".format(str(frame_num)))
 		output_filepath = output_folder/'{}_{}.png'.format(filename, str(frame_num))
-		clip.save_frame(output_filepath)
+		clip.save_frame(output_filepath, t=t)
 	print("All frames saved for video {}!".format(mp4.with_suffix("").__str__()))
 
 # Iterate over every video type from our source data.
-for type in ["top_view", "wide_view", "top_view_visualized", "wide_view_visualized"]:
+for type in ["top_view", "wide_view"]:
 	input_folder = data/"untouched/{}".format(type)
 	for mp4 in os.listdir(input_folder):
 		filename = mp4.replace(".mp4", "")
-		output_folder = data/"base/{}/{}".format(type, filename)
+		output_folder = data/"images/{}/{}".format(type, filename)
 		extract_frames(input_folder/mp4, filename, output_folder)
