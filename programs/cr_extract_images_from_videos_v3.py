@@ -13,7 +13,7 @@ analysis = mids_dir/"analysis"
 # Date Updated: April 6, 2024
 # Description: Extract frame-by-frame image data from input videos.
 # Notes: [v1] Created program.
-#		 [v2, v3] Fixed errors. Added option to export at lower resolution.
+#		 [v2, v3] Fixed errors.
 # Inputs: Untouched video data.
 # Outputs: Frame-by-frame image data.
 
@@ -39,7 +39,7 @@ def extract_frames(mp4_path, filename, output_folder):
     total_frames = int(clip.duration * frame_rate)
 
     for i, frame in enumerate(clip.iter_frames()):
-        if i % (frame_rate * 30) == 0:
+        if i % 30 == 0:
             print(f"Frame {i + 1}...")
         
         # Convert numpy array to PIL Image
