@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 
 mids_dir = Path("D:\\MIDS-W207")
-data = mids_dir/"MIDS-W207-Spring24-Soccer-Detection-Data/soccertrack"
+data = mids_dir/"datasets/soccertrack"
 project = mids_dir/"MIDS-W207-Spring24-Soccer-Detection-Data"
 analysis = mids_dir/"analysis"
 
