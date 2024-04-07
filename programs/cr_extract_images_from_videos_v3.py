@@ -13,7 +13,8 @@ analysis = mids_dir/"analysis"
 # Date Updated: April 6, 2024
 # Description: Extract frame-by-frame image data from input videos.
 # Notes: [v1] Created program.
-#		 [v2, v3] Fixed errors.
+#		 [v2, v3] Fixed errors. Used ChatGPT to optimize and reduce runtime
+# from approximately 17 days to 2.5 days.
 # Inputs: Untouched video data.
 # Outputs: Frame-by-frame image data.
 
@@ -54,6 +55,7 @@ def extract_frames(mp4_path, filename, output_folder):
 for type in ["top_view", "wide_view"]:
 	input_folder = data/"untouched/{}".format(type)
 	for mp4 in os.listdir(input_folder):
+		
 		filename = mp4.replace(".mp4", "")
 		output_folder = data/"images/{}/{}".format(type, filename)
 		extract_frames(input_folder/mp4, filename, output_folder)

@@ -1,0 +1,4 @@
+https://github.com/ultralytics/yolov3/issues/249
+
+^ This should allow for inverse-frequency weighting for the classes. Can be a hyperparameter.
+Bypasses the need for a square dataset.
