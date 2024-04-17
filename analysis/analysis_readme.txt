@@ -1,1 +1,0 @@
-If your program creates output which is not data, send it to this folder.
