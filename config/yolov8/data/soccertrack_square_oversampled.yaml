@@ -1,0 +1,15 @@
+path: D:/MIDS-W207/datasets/soccertrack_square  # dataset root dir
+train: D:/MIDS-W207/datasets/soccertrack_square/splits/oversampled_train_v1.txt  # train images (relative to 'path') 
+val: D:/MIDS-W207/datasets/soccertrack_square/splits/oversampled_val_v1.txt # val images (relative to 'path')
+test: D:/MIDS-W207/datasets/soccertrack_square/splits/oversampled_test_v1.txt
+# Example usage: python train.py --data coco.yaml
+# parent
+# ├── yolov9
+# └── datasets
+#     └── soccertrack_square
+
+# Classes (3 soccertrack classes)
+names:
+  0: ball
+  1: team_0
+  2: team_1

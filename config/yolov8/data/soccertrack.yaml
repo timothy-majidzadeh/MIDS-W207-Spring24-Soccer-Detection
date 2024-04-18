@@ -1,0 +1,15 @@
+path: D:/MIDS-W207/datasets/soccertrack  # dataset root dir
+train: D:/MIDS-W207/datasets/soccertrack/train_v4.txt  # train images (relative to 'path') 
+val: D:/MIDS-W207/datasets/soccertrack/val_v4.txt # val images (relative to 'path')
+test: D:/MIDS-W207/datasets/soccertrack/test_v4.txt
+# Example usage: python train.py --data coco.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── soccertrack
+
+# Classes (80 COCO classes)
+names:
+  0: ball
+  1: team_0
+  2: team_1
