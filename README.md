@@ -1,5 +1,5 @@
 # MIDS-W207-Spring24-Soccer-Detection
-T. Majidzadeh and E. Ndedi's work on the MIDS w207 Project
+T. Majidzadeh and E. Ndedi's work on the MIDS w207 Project.
 
 # Follow the below steps to run!
 
@@ -7,8 +7,11 @@ T. Majidzadeh and E. Ndedi's work on the MIDS w207 Project
 
 2. Within YOUR-PATH-HERE, or equivalent, clone the following repositories:
     a. yolov3 https://github.com/ultralytics/yolov3
+    
     b. yolov5 https://github.com/ultralytics/yolov5
+    
     c. yolov7 https://github.com/WongKinYiu/yolov7
+    
     Other YOLO versions are implemented by importing the Ultralytics package into Python.
 
 3. Copy the *contents* of the config folder in our repository (not the config folder itself) inside YOUR-PATH-HERE. These config files tell YOLO packages where to find our data and set values for certain image augmentations and hyperparameters. If you are prompted to replace existing files, accept.
@@ -21,7 +24,7 @@ T. Majidzadeh and E. Ndedi's work on the MIDS w207 Project
 
 7. Download the necessary .pt files for YOLO: yolov3-tiny.pt, yolov5n.pt, yolov6n.pt, yolov7-tiny.pt, and yolov8n.pt.
     
-7. Run the programs in the order indicated by the numbers. Programs with the same number can run in any order. Programs that rely on Tensorflow and Keras function best with Python 3.10, Tensorflow 2.15.0. Expect the process of extracting and saving images from videos, and cropping images to random squares, to take about 4-6 days of time and up to 700 GB of storage space.
+8. Run the programs in the order indicated by the numbers. Programs with the same number can run in any order. Programs that rely on Tensorflow and Keras function best with Python 3.10, Tensorflow 2.15.0. Expect the process of extracting and saving images from videos, and cropping images to random squares, to take about 4-6 days of time and up to 700 GB of storage space.
 
 # Works Cited
 Uchida, I., et al. (2022) “SoccerTrack: A Dataset and Tracking Algorithm for Soccer with Fish-eye and Drone Videos,” (“SoccerTrack”), kaggle.com, available at https://www.kaggle.com/datasets/atomscott/soccertrack/data.
