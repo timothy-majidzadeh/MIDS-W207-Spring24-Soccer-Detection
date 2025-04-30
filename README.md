@@ -1,7 +1,7 @@
 # MIDS-W207-Spring24-Soccer-Detection
-T. Majidzadeh and E. Ndedi's work on the MIDS w207 Project.
+T. Majidzadeh and E. Ndedi's work on the MIDS w207 - Applied Machine Learning Project. We rely on videos of a soccer match on Kaggle (the "SoccerTrack" dataset, cited below), extract images from these videos, then use these images to train object detection models for the ball & players. Models are You Only Look Once (YOLO) models deployed using Ultralytics. See the [deliverables](https://github.com/timothy-majidzadeh/MIDS-W207-Spring24-Soccer-Detection/tree/main/deliverables) folder for our final presentation and report.
 
-# Follow the below steps to run!
+# Follow the below steps to replicate this project
 
 1. Clone this repository inside of a folder YOUR-PATH-HERE on your machine. By default, we use the directory "D:\\MIDS-W207" or "c:/Desktop/MIDS-W207".
 
